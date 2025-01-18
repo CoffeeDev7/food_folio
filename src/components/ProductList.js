@@ -49,7 +49,7 @@ const ProductList = () => {
     }, []);
 
     return (
-        <main>
+        <main className='main'>
             <div className="product-list">
                 {products.map((product) => (
                     <ProductCard key={product.code} product={product} />
