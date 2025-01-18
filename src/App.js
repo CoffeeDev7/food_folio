@@ -1,18 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/Homepage";
-import DetailPage from "./pages/Detailpage";
+// App.jsx
+import React from 'react';
+import Header from './components/Header';
+import ProductList from './components/ProductList';
+import { ProductProvider } from './contexts/ProductContext';
+import './App.css';
 
-function App() {
-  // trying a simple change with git flow
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/product/:barcode" element={<DetailPage />} />
-      </Routes>
-    </Router>
-  );
-}
+const App = () => {
+    return (
+        <ProductProvider>
+            <div className="app-container">
+                <Header />
+                <ProductList />
+            </div>
+        </ProductProvider>
+    );
+};
 
 export default App;

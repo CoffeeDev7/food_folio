@@ -1,16 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// components/ProductCard.jsx
+import React from 'react';
+import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  return (
-    <div className="product-card">
-      <img src={product.image_url || "placeholder.jpg"} alt={product.product_name} />
-      <h2>{product.product_name}</h2>
-      <p>Category: {product.categories || "N/A"}</p>
-      <p>Nutrition Grade: {product.nutrition_grades || "N/A"}</p>
-      <Link to={`/product/${product.code}`}>View Details</Link>
-    </div>
-  );
+    return (
+        <div className="product-card">
+            <img src={product.image_url} alt={product.product_name} />
+            <h3>{product.product_name}</h3>
+            <p>Category: {product.categories}</p>
+            <p>Nutrition Grade: {product.nutrition_grades}</p>
+            <p>Ingredients: {product.ingredients_text || 'N/A'}</p>
+        </div>
+    );
 };
 
 export default ProductCard;
