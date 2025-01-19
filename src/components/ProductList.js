@@ -21,21 +21,34 @@ const ProductList = () => {
     } = useContext(ProductContext);
 
     useEffect(() => {
+        // const fetchProducts = async () => {
+        //     setLoading(true);
+        //     let url = `https://world.openfoodfacts.org/search.json?page=${page}`;
+
+        //     if (selectedCategory) {
+        //         url = `https://world.openfoodfacts.org/category/${selectedCategory}.json?page=${page}`;
+        //     } else if (searchQuery) {
+        //         url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchQuery}&json=true&page=${page}`;
+        //     }
+
+        //     const response = await fetch(url);
+        //     const data = await response.json();
+        //     setProducts((prev) => [...prev, ...data.products]);
+        //     setLoading(false);
+        // };
         const fetchProducts = async () => {
-            setLoading(true);
-            let url = `https://world.openfoodfacts.org/search.json?page=${page}`;
-
-            if (selectedCategory) {
-                url = `https://world.openfoodfacts.org/category/${selectedCategory}.json?page=${page}`;
-            } else if (searchQuery) {
-                url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchQuery}&json=true&page=${page}`;
+            try {
+              const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchQuery}&json=true&page=${page}`;
+              const response = await fetch(url);
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              const data = await response.json();
+              setProducts(data.products);
+            } catch (error) {
+              console.error('Error fetching products:', error);
             }
-
-            const response = await fetch(url);
-            const data = await response.json();
-            setProducts((prev) => [...prev, ...data.products]);
-            setLoading(false);
-        };
+          };
         fetchProducts();
     }, [page, searchQuery, selectedCategory]);
 
@@ -46,7 +59,7 @@ const ProductList = () => {
             setCategories(data.tags);
         };
         fetchCategories();
-    }, []);
+    }, [setProducts]);
 
     return (
         <main className='main'>
