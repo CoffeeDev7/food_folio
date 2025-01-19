@@ -20,6 +20,7 @@ const ProductList = () => {
     } = useContext(ProductContext);
 
     const [sortedProducts, setSortedProducts] = useState([]);
+    const [countdown, setCountdown] = useState(7); // Start countdown from 7 seconds
 
     useEffect(() => {
         // Fetch categories on initial render
@@ -74,6 +75,15 @@ const ProductList = () => {
     }, [page, searchQuery, selectedCategory, setProducts]);
 
     useEffect(() => {
+        if (loading && countdown > 0) {
+            const timeout = setTimeout(() => {
+                setCountdown(countdown - 1); // Decrease countdown every second
+            }, 1000);
+            return () => clearTimeout(timeout); // Clean up the timeout on unmount
+        }
+    }, [loading, countdown]);
+
+    useEffect(() => {
         // Sort products whenever products or sortOption changes
         const applySorting = () => {
             let sorted = [...products];
@@ -99,7 +109,7 @@ const ProductList = () => {
         setPage(1); // Reset to the first page when category changes
         setProducts([]); // Clear the current product list before fetching new data
     };
-    
+
     return (
         <main className="main">
             <div className="filter-bar">
@@ -119,7 +129,9 @@ const ProductList = () => {
                 ))}
             </div>
 
-            {loading && <p>Loading...</p>}
+            {/* Display the countdown or "Loading..." */}
+            {loading && countdown > 0 && <p>Loading... {countdown}s</p>}
+            {!loading && <p>Products Loaded!</p>}
 
             <button
                 className="load-more"
