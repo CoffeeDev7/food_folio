@@ -111,8 +111,6 @@ useEffect(() => {
    -  Some products do not have valid images coming from the API.
    -  For them, custom smooth "image not available" png is shown instead, so it does not disrupt the aesthetic of the total site.
 
-![image](https://github.com/user-attachments/assets/39f2b83d-cd29-4e22-908e-ef01dc780a6a)
-
    <img src="https://github.com/user-attachments/assets/39f2b83d-cd29-4e22-908e-ef01dc780a6a" width="300"/>
 
 ---
