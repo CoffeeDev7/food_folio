@@ -7,6 +7,7 @@
 The **Food Product Explorer** is an interactive web application that allows users to search for food products, view their details, and explore nutritional information. The application uses data fetched from an API (or mock data) and offers various sorting and filtering options to help users find products that match their preferences. 
 
 This is how I approached and solved the problem while building the project, with a focus on the following features:
+This is how I approached and solved the problem while building the project, with a focus on the following features:
 
 - **Search by Product Name**
 - **Search by Barcode**
@@ -28,6 +29,7 @@ This is how I approached and solved the problem while building the project, with
    - **Solution:** 
      - Created a controlled input field with React's `useState` hook to handle the search query.
      - Added an `onSubmit` handler to trigger the search function, which filters products based on the search query.
+     - Fetched data from openfoodfacts api to display the results.
      - Fetched data from openfoodfacts api to display the results.
 
 ```jsx
@@ -70,6 +72,7 @@ const handleBarcodeSearch = async () => {
    - **Problem:** Users should be able to sort products based on name or nutrition grade.
    - **Solution:** 
      - Added a dropdown with sorting options (A-Z, Z-A, etc).
+     - Added a dropdown with sorting options (A-Z, Z-A, etc).
      - The sorting function reorders the displayed products based on the selected option.
 
 ```jsx
@@ -108,6 +111,11 @@ useEffect(() => {
 ```
 
 ### 7. **Styling and Responsiveness**
+   -  The application should be visually appealing and responsive across different screen sizes.
+   
+    - Used Flexbox and Grid layouts to ensure that the page elements are properly aligned and responsive.
+    - Added transitions and hover effects to improve the user experience (e.g., for buttons and product cards).
+    - Employed consistent spacing and padding to make the interface neat and user-friendly.
    -  The application should be visually appealing and responsive across different screen sizes.
    
     - Used Flexbox and Grid layouts to ensure that the page elements are properly aligned and responsive.
