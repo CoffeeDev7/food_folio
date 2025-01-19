@@ -15,6 +15,11 @@ This is how I approached and solved the problem while building the project, with
 - **Load More Products**
 
 ---
+# Note 
+- Openfoodfacts.org didnot have any official documentation regarding API. It only has clear info about   downloading data but the api related urls were vague unlike normal API information.
+- Sometimes productlist loading in the homepage(even 'load more' sometimes) might take upto 10 seconds. But it will definitely eventually load. Computers with realtime network speed can see that in action. If it doesnot load even after 15sec, a refresh should do the job. But this is rare.
+
+---
 
 ## Key Features and Solutions
 
@@ -142,6 +147,4 @@ useEffect(() => {
 
 ---
 
-# Note 
-- Openfoodfacts.org didnot have any official documentation regarding API. It only has clear info about   downloading data but the api related urls were vague unlike normal API information.
-- Sometimes product loading might take upto 10 seconds. But it will definitely eventually load. Computers with realtime network speed can see that in action.
+
