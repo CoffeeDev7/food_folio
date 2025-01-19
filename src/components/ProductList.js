@@ -20,7 +20,7 @@ const ProductList = () => {
     } = useContext(ProductContext);
 
     const [sortedProducts, setSortedProducts] = useState([]);
-    const [countdown, setCountdown] = useState(7); // Start countdown from 7 seconds
+    const [countdown, setCountdown] = useState(20); // Start countdown from 7 seconds
 
     useEffect(() => {
         // Fetch categories on initial render
