@@ -111,15 +111,7 @@ useEffect(() => {
    -  Some products do not have valid images coming from the API.
    -  For them, custom smooth "image not available" png is shown instead, so it does not disrupt the aesthetic of the total site.
 
-```css
-/* Example of Card Styling */
-.product-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-```
+
 
 ---
 
