@@ -43,6 +43,7 @@ const ProductList = () => {
     useEffect(() => {
         // Fetch products based on the selected filter
         const fetchProducts = async () => {
+            const proxyUrl = 'https://api.allorigins.win/raw?url=';
             try {
                 setLoading(true);
                 let url = `https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/search.json?page=${page}`;
@@ -53,7 +54,7 @@ const ProductList = () => {
                     url = `https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchQuery}&json=true&page=${page}`;
                 }
 
-                const response = await fetch(url);
+                const response = await fetch(proxyUrl + encodeURIComponent(url));
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
