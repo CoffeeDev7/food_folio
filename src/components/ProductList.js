@@ -26,7 +26,7 @@ const ProductList = () => {
         // Fetch categories on initial render
         const fetchCategories = async () => {
             try {
-                const response = await fetch('https://world.openfoodfacts.org/categories.json');
+                const response = await fetch('https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/categories.json');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -45,17 +45,15 @@ const ProductList = () => {
         const fetchProducts = async () => {
             try {
                 setLoading(true);
-                let url = `https://world.openfoodfacts.org/search.json?page=${page}`;
+                let url = `https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/search.json?page=${page}`;
 
                 if (selectedCategory) {
-                    url = `https://world.openfoodfacts.org/category/${selectedCategory}.json?page=${page}`;
+                    url = `https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/category/${selectedCategory}.json?page=${page}`;
                 } else if (searchQuery) {
-                    url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchQuery}&json=true&page=${page}`;
+                    url = `https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchQuery}&json=true&page=${page}`;
                 }
 
-                const response = await fetch(url,{
-                    mode: 'no-cors',
-                });
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
