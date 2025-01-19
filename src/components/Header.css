@@ -42,10 +42,11 @@
 }
 
 .search-bar input:focus {
-    border-color: #578E7E;
+    border-color: #577BC1;
 }
 
 .search-bar button {
+    display: block;
     padding: 10px 20px;
     background-color: #fff;
     color: #578E7E;
@@ -75,7 +76,7 @@
     font-size: 1rem;
     border: 2px solid #fff;
     border-radius: 25px 0 0 25px;
-    width: 85%;
+    width: 55%;
     outline: none;
     transition: border-color 0.3s ease;
 }

@@ -21,15 +21,14 @@ const Header = () => {
         <header className="header">
             <h1>Food Product Explorer</h1>
             <div className="search-bar">
-                <form onSubmit={handleSearch}>
+                
                     <input
                         type="text"
-                        placeholder="Search by product name"
+                        placeholder="Search by product name (eg. try Choco)"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <button type="submit">Search</button>
-                </form>
             </div>
             <div className="barcode-search">
                 <input
@@ -40,19 +39,7 @@ const Header = () => {
                 />
                 <button onClick={handleBarcodeSearch}>Search Barcode</button>
             </div>
-            {/* <div className="category-filter">
-                <select
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                >
-                    <option value="">All Categories</option>
-                    {categories.map((category) => (
-                        <option key={category.id} value={category.id}>
-                            {category.name}
-                        </option>
-                    ))}
-                </select>
-            </div> */}
+            
             <div className="sort-options">
                 <select onChange={(e) => handleSort(e.target.value)}>
                     <option value="">Sort By</option>
