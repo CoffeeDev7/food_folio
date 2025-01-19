@@ -1,6 +1,4 @@
-Here's a detailed README file to explain how you solved the project:
 
----
 
 # Food Product Explorer
 
@@ -8,7 +6,7 @@ Here's a detailed README file to explain how you solved the project:
 
 The **Food Product Explorer** is an interactive web application that allows users to search for food products, view their details, and explore nutritional information. The application uses data fetched from an API (or mock data) and offers various sorting and filtering options to help users find products that match their preferences. 
 
-This README explains how I approached and solved the problem while building the project, with a focus on the following features:
+This is how I approached and solved the problem while building the project, with a focus on the following features:
 
 - **Search by Product Name**
 - **Search by Barcode**
@@ -25,7 +23,7 @@ This README explains how I approached and solved the problem while building the 
    - **Solution:** 
      - Created a controlled input field with React's `useState` hook to handle the search query.
      - Added an `onSubmit` handler to trigger the search function, which filters products based on the search query.
-     - Fetched data from a mock API (or real API in a production scenario) to display the results.
+     - Fetched data from openfoodfacts api to display the results.
 
 ```jsx
 const handleSearch = async (e) => {
@@ -66,7 +64,7 @@ const handleBarcodeSearch = async () => {
 ### 4. **Sort Options**
    - **Problem:** Users should be able to sort products based on name or nutrition grade.
    - **Solution:** 
-     - Added a dropdown with sorting options (A-Z, Z-A, Nutrition Ascending, Nutrition Descending).
+     - Added a dropdown with sorting options (A-Z, Z-A, etc).
      - The sorting function reorders the displayed products based on the selected option.
 
 ```jsx
@@ -105,11 +103,11 @@ useEffect(() => {
 ```
 
 ### 7. **Styling and Responsiveness**
-   - **Problem:** The application should be visually appealing and responsive across different screen sizes.
-   - **Solution:** 
-     - Used Flexbox and Grid layouts to ensure that the page elements are properly aligned and responsive.
-     - Added transitions and hover effects to improve the user experience (e.g., for buttons and product cards).
-     - Employed consistent spacing and padding to make the interface neat and user-friendly.
+   -  The application should be visually appealing and responsive across different screen sizes.
+   
+    - Used Flexbox and Grid layouts to ensure that the page elements are properly aligned and responsive.
+    - Added transitions and hover effects to improve the user experience (e.g., for buttons and product cards).
+    - Employed consistent spacing and padding to make the interface neat and user-friendly.
 
 ```css
 /* Example of Card Styling */
@@ -144,6 +142,6 @@ useEffect(() => {
 
 ---
 
-## Conclusion
-
-This project demonstrates how React can be used to build an interactive and responsive product explorer with features like search, filter, sort, and pagination. By utilizing modern React concepts like state management, context, hooks, and routing, the app provides a smooth and user-friendly experience.
+# Note 
+- Openfoodfacts.org didnot have any official documentation regarding API. It only has clear info about   downloading data but the api related urls were vague unlike normal API information.
+- Sometimes product loading might take upto 10 seconds. But it will definitely eventually load. Computers with realtime network speed can see that in action.
