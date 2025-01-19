@@ -40,7 +40,7 @@ const Header = () => {
                 />
                 <button onClick={handleBarcodeSearch}>Search Barcode</button>
             </div>
-            <div className="category-filter">
+            {/* <div className="category-filter">
                 <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
@@ -52,7 +52,7 @@ const Header = () => {
                         </option>
                     ))}
                 </select>
-            </div>
+            </div> */}
             <div className="sort-options">
                 <select onChange={(e) => handleSort(e.target.value)}>
                     <option value="">Sort By</option>
