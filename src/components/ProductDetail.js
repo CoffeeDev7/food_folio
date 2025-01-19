@@ -3,27 +3,34 @@ import { useParams } from 'react-router-dom';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
-    const { id } = useParams();  // Get the product ID from the URL
+    const { id } = useParams(); // Get the product ID from the URL
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate fetching product data (Replace with your actual data fetch logic)
         const fetchProduct = async () => {
             try {
-                // Replace this with actual API request or context fetch
-                const response = await fetch(`https://api.example.com/products/${id}`);
+                const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${id}.json`);
+                if (!response.ok) {
+                    throw new Error(`Error fetching product with ID ${id}`);
+                }
+
                 const data = await response.json();
-                setProduct(data);
+                if (data.status === 1) {
+                    setProduct(data.product); // Use the "product" object from the response
+                } else {
+                    setProduct(null);
+                }
             } catch (error) {
                 console.error('Error fetching product:', error);
+                setProduct(null);
             } finally {
                 setLoading(false);
             }
         };
 
         fetchProduct();
-    }, [id]);  // Re-run when the product ID changes
+    }, [id]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -48,7 +55,13 @@ const ProductDetail = () => {
                     <li>Proteins: {product.nutriments.proteins || 'N/A'}</li>
                 </ul>
                 <h3>Labels:</h3>
-                <p>{product.labels.join(', ') || 'N/A'}</p>
+                <p>
+                    {Array.isArray(product.labels)
+                        ? product.labels.join(', ')
+                        : typeof product.labels === 'string'
+                        ? product.labels
+                        : 'N/A'}
+                </p>
             </div>
         </div>
     );
