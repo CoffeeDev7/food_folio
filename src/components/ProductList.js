@@ -46,12 +46,12 @@ const ProductList = () => {
             const proxyUrl = 'https://api.allorigins.win/raw?url=';
             try {
                 setLoading(true);
-                let url = `https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/search.json?page=${page}`;
+                let url = `https://world.openfoodfacts.org/search.json?page=${page}`;
 
                 if (selectedCategory) {
-                    url = `https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/category/${selectedCategory}.json?page=${page}`;
+                    url = `https://world.openfoodfacts.org/category/${selectedCategory}.json?page=${page}`;
                 } else if (searchQuery) {
-                    url = `https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchQuery}&json=true&page=${page}`;
+                    url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchQuery}&json=true&page=${page}`;
                 }
 
                 const response = await fetch(proxyUrl + encodeURIComponent(url));
