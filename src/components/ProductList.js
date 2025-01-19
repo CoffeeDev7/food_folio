@@ -99,7 +99,7 @@ const ProductList = () => {
         setPage(1); // Reset to the first page when category changes
         setProducts([]); // Clear the current product list before fetching new data
     };
-
+    
     return (
         <main className="main">
             <div className="filter-bar">

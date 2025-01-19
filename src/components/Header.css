@@ -1,4 +1,6 @@
 /* Overall header styling */
+
+
 .header {
     background-color: #578E7E; /* Elegant and subtle background color */
     color: white;
@@ -13,13 +15,13 @@
 
 /* Header title */
 .header h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
     letter-spacing: 1px;
     text-align: center;
     color: #fff;
-    font-family: 'Arial', sans-serif;
+    font-family: "Hachi Maru Pop", serif;
 }
 
 /* Search bar styling */
