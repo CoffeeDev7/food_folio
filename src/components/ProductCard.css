@@ -5,35 +5,47 @@
 
 .product-card {
     border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
+    border-radius: 15px; /* Soften the corners */
+    padding: 15px;
+    margin: 15px;
     text-align: center;
-    width: 220px; /* Set a consistent width for all cards */
-    height: 300px; /* Set a consistent height for all cards */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    width: 220px; /* Square size */
+    height: 220px; /* Ensure it remains square */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer, larger shadow for elegance */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #fff; /* White background to keep it fresh and clean */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transitions */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Elevate shadow on hover */
+    border: 2px solid #578E7E; /* Change border color to match hover theme */
 }
 
 .product-card img {
-    width: 100%;
-    height: 250px; /* Set a consistent height for images */
-    object-fit: contain; /* Ensures images fit within the box without distortion */
-    border-radius: 15px;
+    width: 50%;
+    height: 50%;
+    /* center image */
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 10px; /* Slightly rounded corners for image */
 }
 
 .product-card h3 {
-    font-size: 1.1rem;
-    margin: 10px 0;
+    font-size: 1rem;
+    margin-top: 10px;
     color: #333;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; /* Truncate long titles with ellipsis */
+    font-weight: 500; /* Make the text slightly bolder for emphasis */
 }
 
-/* on hover border */
-.product-card:hover {
-    border: 2px solid #4c19a4;
+/* Optional: Adding a slight color tint to hover */
+.product-card:hover h3 {
+    color: #578E7E;
 }
