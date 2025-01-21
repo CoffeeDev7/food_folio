@@ -25,6 +25,7 @@ const ProductList = () => {
     useEffect(() => {
         // Fetch categories on initial render
         const fetchCategories = async () => {
+            console.log('Fetching categories...');
             try {
                 const response = await fetch('https://world.openfoodfacts.org/categories.json');
                 if (!response.ok) {
@@ -32,6 +33,7 @@ const ProductList = () => {
                 }
                 const data = await response.json();
                 setCategories(data.tags);
+                console.log('Categories fetched:', data.tags);
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
@@ -43,7 +45,7 @@ const ProductList = () => {
     useEffect(() => {
         // Fetch products based on the selected filter
         const fetchProducts = async () => {
-            
+            console.log('Fetching products...');
             try {
                 setLoading(true);
                 let url = `https://world.openfoodfacts.org/search.json?page=${page}`;
@@ -65,6 +67,7 @@ const ProductList = () => {
                 } else {
                     setProducts((prev) => [...prev, ...data.products]);
                 }
+                console.log('Products fetched:', data.products);
             } catch (error) {
                 console.error('Error fetching products:', error);
             } finally {
@@ -87,6 +90,7 @@ const ProductList = () => {
     useEffect(() => {
         // Sort products whenever products or sortOption changes
         const applySorting = () => {
+            console.log('Applying sorting...');
             let sorted = [...products];
 
             if (sortOption === 'name-asc') {
@@ -100,6 +104,7 @@ const ProductList = () => {
             }
 
             setSortedProducts(sorted);
+            console.log('Products sorted:', sorted);
         };
 
         applySorting();
@@ -109,6 +114,7 @@ const ProductList = () => {
         setSelectedCategory(event.target.value);
         setPage(1); // Reset to the first page when category changes
         setProducts([]); // Clear the current product list before fetching new data
+        console.log('Category changed to:', event.target.value);
     };
 
     return (
@@ -146,3 +152,4 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
